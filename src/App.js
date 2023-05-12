@@ -1,29 +1,25 @@
-import Header from './components/Header'
-import GameArena from './components/GameArena';
-import Arena from './gamelogic/logic';
-import Button from './components/StartButton';
+import Header from "./components/Header";
+import GameArena from "./components/GameArena";
+import Arena from "./gamelogic/logic";
+import Button from "./components/StartButton";
+import { useState } from "react";
 
-let res = 30;
-let size = 600;
-
-
-let start = (r) => {
-  return new Arena(r);
-}
-let arena = start(res);
-
-function App() {
-
+function App({ size = 600, res = 30 }) {
+  let [game, newGame] = useState(new Arena(res));
   return (
     <div className="container">
       <div>
-        <Header title='Testing'></Header>
-        <Button title= 'Start' onClick={start}></Button>
+        <Header title="Testing"></Header>
+        <Button
+          title="Start"
+          onClick={() => {
+            newGame(new Arena(res));
+          }}
+        ></Button>
       </div>
-      <GameArena resolution = {arena.resolution} size = {`${size}`} game = {arena}></GameArena>
+      <GameArena resolution={res} size={`${size}`} game={game}></GameArena>
     </div>
   );
 }
-
 
 export default App;

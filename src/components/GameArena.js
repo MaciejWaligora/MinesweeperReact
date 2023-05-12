@@ -28,10 +28,10 @@ let rectWidth = parseInt(size)/resolution;
                   row.map((cell, ii) =>{
                     let posX = ii * rectWidth;
                     let posY = i * rectWidth;
-                    const Tilehandler = () => {
-                      console.log(game.check(i, ii));
+                    const check = () => {
+                      return game.check(i, ii)
                     }
-                     return <Tile x ={posX} y= {posY} width ={rectWidth} key = {`${i}:${ii}`} handler = {Tilehandler}></Tile>
+                     return <Tile x ={posX} y= {posY} width ={rectWidth} key = {`${i}:${ii}`} check = {check} ></Tile>
                   })
                 }
             </g>
