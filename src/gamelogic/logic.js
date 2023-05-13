@@ -4,7 +4,7 @@ export default class Arena {
     this.resolution = resolution;
     this.bombCounter = 0;
     this.#grid = this.createGridArr();
-    while (this.bombCounter < resolution * 10) {
+    while (this.bombCounter < resolution * 5) {
       this.placeBomb();
     }
     this.placeHints();
