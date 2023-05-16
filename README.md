@@ -4,5 +4,5 @@ Just Playing around in REACT to create a Minesweeper game
 
 ## RUN:
 
-    npm instll
+    npm install
     npm run start
