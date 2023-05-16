@@ -1,6 +1,8 @@
+import { useState } from "react";
 import { Tiles } from "./Labels/Tiles";
 
 const Tile = ({ y, x, width, val, check }) => {
+  let [flagged, setFlagged] = useState(false);
   let label;
 
   let background = (
@@ -10,6 +12,16 @@ const Tile = ({ y, x, width, val, check }) => {
       width={width}
       height={width}
       fill={"lightBlue"}
+      stroke={"grey"}
+    ></rect>
+  );
+  let bmbBackground = (
+    <rect
+      x={0}
+      y={0}
+      width={width}
+      height={width}
+      fill={"red"}
       stroke={"grey"}
     ></rect>
   );
@@ -84,7 +96,7 @@ const Tile = ({ y, x, width, val, check }) => {
     case "*":
       label = (
         <>
-          {background}
+          {bmbBackground}
           {Tiles.bomb}
         </>
       );
@@ -101,9 +113,38 @@ const Tile = ({ y, x, width, val, check }) => {
           key={`${y}:${x}`}
           className="tile"
           onClick={check}
-          //onContextMenu={setFlag}
+          onContextMenu={setFlag}
         ></rect>
       );
+  }
+
+  function setFlag(e) {
+    e.preventDefault();
+    setFlagged(true);
+  }
+
+  function unsetFlag(e) {
+    e.preventDefault();
+    setFlagged(false);
+  }
+
+  if (flagged) {
+    label = (
+      <>
+        <rect
+          x={0}
+          y={0}
+          width={width}
+          height={width}
+          fill="white"
+          stroke="grey"
+          key={`${y}:${x}`}
+          className="tile"
+          onContextMenu={unsetFlag}
+        ></rect>
+        {Tiles.flag}
+      </>
+    );
   }
 
   let translate = `translate(${x}, ${y})`;
