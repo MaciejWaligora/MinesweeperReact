@@ -1,6 +1,6 @@
 import Header from "./components/Header";
-import GameArena from "./components/GameArena";
-import Arena from "./gamelogic/logic";
+import GameArena from "./components/Game/GameArena";
+import Arena from "./components/Game/gamelogic/logic";
 import Button from "./components/StartButton";
 import { useState } from "react";
 
