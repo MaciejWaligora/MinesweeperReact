@@ -1,4 +1,4 @@
-export default class Arena {
+export default class Logic {
   #grid;
   constructor(resolution) {
     this.resolution = resolution;

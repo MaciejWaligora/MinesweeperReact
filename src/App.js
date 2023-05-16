@@ -1,15 +1,12 @@
 import Header from "./components/Header";
-import GameArena from "./components/Game/GameArena";
-import Arena from "./components/Game/gamelogic/logic";
+import MineSweeper from "./components/MineSweeper/MineSweeper";
 import Button from "./components/StartButton";
 import { useState } from "react";
 
 function App({ size = 600, res = 30 }) {
-  let [game, newGame] = useState(new Arena(res));
   let [gameKey, setGameKey] = useState(0);
 
   const restartGame = () => {
-    newGame(new Arena(res));
     setGameKey((prevKey) => prevKey + 1);
   };
 
@@ -19,12 +16,11 @@ function App({ size = 600, res = 30 }) {
         <Header title="Testing"></Header>
         <Button title="New Game" onClick={restartGame}></Button>
       </div>
-      <GameArena
+      <MineSweeper
         key={gameKey}
         resolution={res}
         size={`${size}`}
-        game={game}
-      ></GameArena>
+      ></MineSweeper>
     </div>
   );
 }

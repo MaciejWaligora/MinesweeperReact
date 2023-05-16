@@ -121,8 +121,3 @@ footer {
   margin-top: 30px;
   text-align: center;
 }
-
-.tile:hover{
-  fill:grey;
-  stroke: white;
-}

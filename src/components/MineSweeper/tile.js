@@ -1,5 +1,8 @@
 import { useState } from "react";
-import { Tiles } from "./Labels/Tiles";
+import { Labels } from "./Labels/Labels";
+import "./Tiles.css";
+
+let Tiles = new Labels();
 
 const Tile = ({ y, x, width, val, check }) => {
   let [flagged, setFlagged] = useState(false);
@@ -139,7 +142,6 @@ const Tile = ({ y, x, width, val, check }) => {
           fill="white"
           stroke="grey"
           key={`${y}:${x}`}
-          className="tile"
           onContextMenu={unsetFlag}
         ></rect>
         {Tiles.flag}
