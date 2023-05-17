@@ -1,14 +1,11 @@
 import { useState } from "react";
 import Tile from "./tile.js";
+import "./css/GameArena.css";
 
 function GameArena({ resolution, size, game }) {
-  let grid = game.createGridArr();
-  grid = grid();
-
+  let grid = game.createGridArr()();
   const [gridState, setGridState] = useState(grid);
-
   let rectWidth = parseInt(size) / resolution;
-
   return (
     <div className="gameArena">
       <div width="100%">

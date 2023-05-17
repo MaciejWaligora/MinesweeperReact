@@ -1,15 +1,16 @@
 import { useState } from "react";
 import { Labels } from "./Labels/Labels";
-import "./Tiles.css";
+import "./css/Tiles.css";
 
 let Tiles = new Labels();
 
 const Tile = ({ y, x, width, val, check }) => {
   let [flagged, setFlagged] = useState(false);
   let label;
-
+  let scale = `scale(${width / 20})`;
   let background = (
     <rect
+      transform={scale}
       x={0}
       y={0}
       width={width}
@@ -20,6 +21,7 @@ const Tile = ({ y, x, width, val, check }) => {
   );
   let bmbBackground = (
     <rect
+      transform={scale}
       x={0}
       y={0}
       width={width}
@@ -107,6 +109,7 @@ const Tile = ({ y, x, width, val, check }) => {
     default:
       label = (
         <rect
+          transform={scale}
           x={0}
           y={0}
           width={width}
@@ -135,6 +138,7 @@ const Tile = ({ y, x, width, val, check }) => {
     label = (
       <>
         <rect
+          transform={scale}
           x={0}
           y={0}
           width={width}
@@ -150,7 +154,7 @@ const Tile = ({ y, x, width, val, check }) => {
   }
 
   let translate = `translate(${x}, ${y})`;
-  return <g transform={translate}>{label}</g>;
+  return <g transform={translate + scale}>{label}</g>;
 };
 
 export default Tile;
