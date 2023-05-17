@@ -14,14 +14,12 @@ Just Playing around in REACT to create a Minesweeper game
 
 3.  Import:
 
-    ```
+    ```jsx
     import MineSweeper from "./components/MineSweeper/MineSweeper";
-
     ```
 
 4.  Use:
 
-    ```
-    <MineSweeper resolution={600} size={30} ></MineSweeper>
-
+    ```jsx
+    <MineSweeper resolution={600} size={30}></MineSweeper>
     ```
