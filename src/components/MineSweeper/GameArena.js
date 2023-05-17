@@ -19,7 +19,6 @@ function GameArena({ resolution, size, game }) {
                 {row.map((cell, ii) => {
                   let posX = ii * rectWidth;
                   let posY = i * rectWidth;
-
                   function check() {
                     let val = game.check(i, ii);
                     let newGrid = [...gridState.map((row) => [...row])];
@@ -37,7 +36,6 @@ function GameArena({ resolution, size, game }) {
                       setGridState(newGrid);
                     }
                   }
-
                   function checkThyNeighbor(grid, x, y) {
                     let neighbours = [
                       [y - 1, x - 1],
