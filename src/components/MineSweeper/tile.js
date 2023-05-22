@@ -1,160 +1,30 @@
 import { useState } from "react";
-import { Labels } from "./Labels/Labels";
+import { Label } from "./Labels/Labels";
 import "./css/Tiles.css";
-
-let Tiles = new Labels();
 
 const Tile = ({ y, x, width, val, check }) => {
   let [flagged, setFlagged] = useState(false);
-  let label;
   let scale = `scale(${width / 20})`;
-  let background = (
-    <rect
-      transform={scale}
-      x={0}
-      y={0}
-      width={width}
-      height={width}
-      fill={"lightBlue"}
-      stroke={"grey"}
-    ></rect>
-  );
-  let bmbBackground = (
-    <rect
-      transform={scale}
-      x={0}
-      y={0}
-      width={width}
-      height={width}
-      fill={"red"}
-      stroke={"grey"}
-    ></rect>
-  );
-  switch (val) {
-    case "0":
-      label = background;
-      break;
-    case "1":
-      label = (
-        <>
-          {background}
-          {Tiles.one}
-        </>
-      );
-      break;
-    case "2":
-      label = (
-        <>
-          {background}
-          {Tiles.two}
-        </>
-      );
-      break;
-    case "3":
-      label = (
-        <>
-          {background}
-          {Tiles.three}
-        </>
-      );
-      break;
-    case "4":
-      label = (
-        <>
-          {background}
-          {Tiles.four}
-        </>
-      );
-      break;
-    case "5":
-      label = (
-        <>
-          {background}
-          {Tiles.five}
-        </>
-      );
-      break;
-    case "6":
-      label = (
-        <>
-          {background}
-          {Tiles.six}
-        </>
-      );
-      break;
-    case "7":
-      label = (
-        <>
-          {background}
-          {Tiles.seven}
-        </>
-      );
-      break;
-    case "8":
-      label = (
-        <>
-          {background}
-          {Tiles.eight}
-        </>
-      );
-      break;
-    case "*":
-      label = (
-        <>
-          {bmbBackground}
-          {Tiles.bomb}
-        </>
-      );
-      break;
-    default:
-      label = (
-        <rect
-          transform={scale}
-          x={0}
-          y={0}
-          width={width}
-          height={width}
-          fill="white"
-          stroke="grey"
-          key={`${y}:${x}`}
-          className="tile"
-          onClick={check}
-          onContextMenu={setFlag}
-        ></rect>
-      );
-  }
 
   function setFlag(e) {
     e.preventDefault();
-    setFlagged(true);
+    !flagged ? setFlagged(true) : setFlagged(false);
   }
-
-  function unsetFlag(e) {
-    e.preventDefault();
-    setFlagged(false);
-  }
-
   if (flagged) {
-    label = (
-      <>
-        <rect
-          transform={scale}
-          x={0}
-          y={0}
-          width={width}
-          height={width}
-          fill="white"
-          stroke="grey"
-          key={`${y}:${x}`}
-          onContextMenu={unsetFlag}
-        ></rect>
-        {Tiles.flag}
-      </>
-    );
+    val = "flag";
   }
 
   let translate = `translate(${x}, ${y})`;
-  return <g transform={translate + scale}>{label}</g>;
+  return (
+    <g transform={translate + scale}>
+      <Label
+        value={val}
+        width={width}
+        clickHandler={check}
+        onContextMenuHanlder={setFlag}
+      ></Label>
+    </g>
+  );
 };
 
 export default Tile;
