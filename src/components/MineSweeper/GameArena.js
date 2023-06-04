@@ -1,14 +1,37 @@
 import { useState } from "react";
+import Done from "./Done.js";
 import Tile from "./tile.js";
 import "./css/GameArena.css";
 
 function GameArena({ resolution, size, game }) {
-  let grid = game.createGridArr()();
+  const grid = game.createGridArr()();
   const [gridState, setGridState] = useState(grid);
-  let rectWidth = parseInt(size) / resolution;
+  const [gameState, setGameState] = useState(true);
+  const rectWidth = parseInt(size) / resolution;
+  const finish = () => {
+    (() => {
+      let endGrid = [];
+      grid.forEach((row, y) => {
+        let r = [];
+        row.forEach((el, x) => {
+          let val = game.check(y, x);
+          if (typeof val === "number") {
+            val = val.toString();
+          } else if (val === "") {
+            val = "0";
+          }
+          r.push(val);
+        });
+        endGrid.push(r);
+      });
+      console.log(endGrid);
+      setGridState(endGrid);
+    })();
+    setGameState(false);
+  };
   return (
     <div className="gameArena">
-      <div width="100%">
+      <div width="100%" style={{ position: "relative" }}>
         <svg
           id="Arena"
           style={{ display: "block", width: `${size}px`, height: `${size}px` }}
@@ -30,6 +53,7 @@ function GameArena({ resolution, size, game }) {
                     } else if (val === "*") {
                       newGrid[i][ii] = val;
                       setGridState(newGrid);
+                      finish();
                     } else {
                       val = val.toString();
                       newGrid[i][ii] = val;
@@ -88,6 +112,7 @@ function GameArena({ resolution, size, game }) {
             );
           })}
         </svg>
+        {gameState ? null : <Done size={size} msg={"Game Over"} />}
       </div>
     </div>
   );

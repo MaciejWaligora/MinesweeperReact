@@ -1,0 +1,9 @@
+.GameOver{
+    position: absolute;
+    top: 0;
+    background-color: lightGrey;
+    opacity: 0.7;
+    display: grid;
+    place-items: center;
+    font-size: xx-large;
+}
