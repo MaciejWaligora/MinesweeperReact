@@ -24,7 +24,6 @@ function GameArena({ resolution, size, game }) {
         });
         endGrid.push(r);
       });
-      console.log(endGrid);
       setGridState(endGrid);
     })();
     setGameState(false);

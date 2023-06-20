@@ -13,6 +13,9 @@ export function Label({
       height={width}
       fill={"lightBlue"}
       stroke={"grey"}
+      onContextMenu={(e) => {
+        e.preventDefault();
+      }}
     ></rect>
   );
   const bmbBackground = (
@@ -37,6 +40,9 @@ export function Label({
             stroke="blue"
             fill="transparent"
             strokeWidth={strokeWidth}
+            onContextMenu={(e) => {
+              e.preventDefault();
+            }}
           />
         </>
       );
@@ -49,6 +55,9 @@ export function Label({
             stroke="green"
             fill="transparent"
             strokeWidth={strokeWidth}
+            onContextMenu={(e) => {
+              e.preventDefault();
+            }}
           />
         </>
       );
@@ -61,6 +70,9 @@ export function Label({
             stroke="red"
             fill="transparent"
             strokeWidth={strokeWidth}
+            onContextMenu={(e) => {
+              e.preventDefault();
+            }}
           />
         </>
       );
@@ -73,12 +85,18 @@ export function Label({
             stroke="black"
             fill="transparent"
             strokeWidth={strokeWidth}
+            onContextMenu={(e) => {
+              e.preventDefault();
+            }}
           />
           <path
             d="M 11 8 9 18"
             stroke="black"
             fill="transparent"
             strokeWidth={strokeWidth}
+            onContextMenu={(e) => {
+              e.preventDefault();
+            }}
           ></path>
         </>
       );
@@ -91,6 +109,9 @@ export function Label({
             stroke="brown"
             fill="transparent"
             strokeWidth={strokeWidth}
+            onContextMenu={(e) => {
+              e.preventDefault();
+            }}
           />
         </>
       );
@@ -103,6 +124,9 @@ export function Label({
             stroke="purple"
             fill="transparent"
             strokeWidth={strokeWidth}
+            onContextMenu={(e) => {
+              e.preventDefault();
+            }}
           />
         </>
       );
@@ -115,6 +139,9 @@ export function Label({
             stroke="purple"
             fill="transparent"
             strokeWidth={strokeWidth}
+            onContextMenu={(e) => {
+              e.preventDefault();
+            }}
           />
           <path
             d="M5 10 14 11"
@@ -133,6 +160,9 @@ export function Label({
             stroke="purple"
             fill="transparent"
             strokeWidth={strokeWidth}
+            onContextMenu={(e) => {
+              e.preventDefault();
+            }}
           />
         </>
       );
@@ -209,6 +239,9 @@ export function Label({
             y2={1}
             stroke="#FFFFFF"
             strokeWidth="1"
+            onContextMenu={(e) => {
+              e.preventDefault();
+            }}
           />
           <line
             x1={1}
@@ -217,6 +250,9 @@ export function Label({
             y2={width - 1}
             stroke="#FFFFFF"
             strokeWidth="1"
+            onContextMenu={(e) => {
+              e.preventDefault();
+            }}
           />
 
           <line
@@ -226,6 +262,9 @@ export function Label({
             y2={width - 1}
             stroke="#808080"
             strokeWidth="1"
+            onContextMenu={(e) => {
+              e.preventDefault();
+            }}
           />
           <line
             x1={width - 1}
@@ -234,6 +273,9 @@ export function Label({
             y2={width - 1}
             stroke="#808080"
             strokeWidth="1"
+            onContextMenu={(e) => {
+              e.preventDefault();
+            }}
           />
         </>
       );
