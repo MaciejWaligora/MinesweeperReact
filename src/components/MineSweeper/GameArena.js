@@ -3,11 +3,13 @@ import Done from "./Done.js";
 import Tile from "./tile.js";
 import "./css/GameArena.css";
 
-function GameArena({ resolution, size, game }) {
+function GameArena({ resolution, game }) {
   const grid = game.createGridArr()();
   const [gridState, setGridState] = useState(grid);
   const [gameState, setGameState] = useState(true);
-  const rectWidth = parseInt(size) / resolution;
+  const rectWidth = 20;
+  const size = resolution * rectWidth;
+
   const finish = () => {
     (() => {
       let endGrid = [];

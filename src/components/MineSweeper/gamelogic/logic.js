@@ -1,10 +1,10 @@
 export default class Logic {
   #grid;
-  constructor(resolution) {
+  constructor(resolution, difficulty) {
     this.resolution = resolution;
     this.bombCounter = 0;
     this.#grid = this.createGridArr();
-    while (this.bombCounter < resolution * 5) {
+    while (this.bombCounter < resolution * difficulty) {
       this.placeBomb();
     }
     this.placeHints();

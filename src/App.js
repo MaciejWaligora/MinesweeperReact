@@ -3,7 +3,7 @@ import MineSweeper from "./components/MineSweeper/MineSweeper";
 import Button from "./components/StartButton";
 import { useState } from "react";
 
-function App({ size = 600, res = 30 }) {
+function App({ res = 10, diff_level = 1 }) {
   let [gameKey, setGameKey] = useState(0);
 
   const restartGame = () => {
@@ -19,7 +19,7 @@ function App({ size = 600, res = 30 }) {
       <MineSweeper
         key={gameKey}
         resolution={res}
-        size={`${size}`}
+        difficulty={diff_level}
       ></MineSweeper>
     </div>
   );

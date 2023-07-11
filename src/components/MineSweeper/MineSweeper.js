@@ -1,11 +1,11 @@
 import Logic from "./gamelogic/logic";
 import GameArena from "./GameArena";
 
-export default function MineSweeper({ resolution, size }) {
-  let game = new Logic(resolution);
+export default function MineSweeper({ resolution, difficulty }) {
+  let game = new Logic(resolution, difficulty);
   return (
     <>
-      <GameArena resolution={resolution} size={size} game={game}></GameArena>
+      <GameArena resolution={resolution} game={game}></GameArena>
     </>
   );
 }
