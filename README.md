@@ -21,5 +21,7 @@ Just Playing around in REACT to create a Minesweeper game
 4.  Use:
 
     ```jsx
-    <MineSweeper resolution={30} size={600}></MineSweeper>
+    <MineSweeper resolution={30} difficulty={1}></MineSweeper>
     ```
+
+Suggested difficulty levels 1-5.
